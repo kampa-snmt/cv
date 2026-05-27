@@ -1,16 +1,8 @@
-// Variables globales
+// ========== VARIABLES GLOBALES ==========
 let currentLang = 'en';
-let audioActual = null;
-let botonActual = null;
-
-// Idiomas con sus audios
-const idiomas = [
-    { nombre: "Español", nombre_en: "Spanish", bandera: "espana.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Espanol.mp3" },
-    { nombre: "Galego", nombre_en: "Galician", bandera: "galicia.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Galego.mp3" },
-    { nombre: "English", nombre_en: "English", bandera: "uk.svg", nivel_en: "Proficient (B2/C1)", nivel_es: "Competente (B2/C1)", audio: "English.mp3" },
-    { nombre: "Português", nombre_en: "Portuguese", bandera: "portugal.svg", nivel_en: "Proficient (C1)", nivel_es: "Competente (C1)", audio: "Portugues.mp3" },
-    { nombre: "中文", nombre_en: "Chinese", bandera: "china.svg", nivel_en: "Beginner (HSK1)", nivel_es: "Principiante (HSK1)", audio: "Chino.mp3" }
-];
+let currentAudio = null;
+let currentAudioBtn = null;
+let currentAudioPlaying = false;
 
 // Secciones a cargar
 const secciones = [
@@ -23,13 +15,134 @@ const secciones = [
     { id: "skills", titulo_en: "🛠️ Skills", titulo_es: "🛠️ Habilidades", archivo_en: "Skills.json", archivo_es: "Habilidades.json" }
 ];
 
-// Inicializar PDF
-const pdfBtnInicial = document.getElementById('downloadPdfBtn');
-if (pdfBtnInicial) {
-    pdfBtnInicial.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
+// Idiomas con configuración de audio
+const idiomasConfig = {
+    'Espanol.mp3': { textEn: '🔊 Hear', textEs: '🔊 Escuchar' },
+    'English.mp3': { textEn: '🔊 Hear', textEs: '🔊 Escuchar' },
+    'Galego.mp3': { textEn: '🔊 Hear', textEs: '🔊 Escoitar' },
+    'Portugues.mp3': { textEn: '🔊 Hear', textEs: '🔊 Ouvir' },
+    'Chino.mp3': { textEn: '🔊 Hear', textEs: '🔊 听' }
+};
+
+// ========== VÍDEO ==========
+const playBtn = document.getElementById('playVideoBtn');
+const profileImg = document.getElementById('profileImg');
+const introVideo = document.getElementById('introVideo');
+let videoVisible = false;
+let videoPlaying = false;
+
+function updateVideoButtonText() {
+    if (!playBtn) return;
+    if (!videoVisible) {
+        playBtn.textContent = currentLang === 'en' ? '🎥 Watch intro' : '🎥 Ver presentación';
+    } else if (videoPlaying) {
+        playBtn.textContent = currentLang === 'en' ? '⏸ Pause' : '⏸ Pausa';
+    } else {
+        playBtn.textContent = currentLang === 'en' ? '▶ Resume' : '▶ Reanudar';
+    }
 }
 
-// Cargar JSON
+if (playBtn && profileImg && introVideo) {
+    playBtn.addEventListener('click', () => {
+        if (!videoVisible) {
+            profileImg.style.display = 'none';
+            introVideo.style.display = 'block';
+            introVideo.play();
+            videoVisible = true;
+            videoPlaying = true;
+        } else if (videoPlaying) {
+            introVideo.pause();
+            videoPlaying = false;
+        } else {
+            introVideo.play();
+            videoPlaying = true;
+        }
+        updateVideoButtonText();
+    });
+
+    introVideo.addEventListener('ended', () => {
+        introVideo.style.display = 'none';
+        profileImg.style.display = 'block';
+        videoVisible = false;
+        videoPlaying = false;
+        updateVideoButtonText();
+    });
+}
+
+// ========== FUNCIONES DE AUDIO ==========
+function updateAudioButtonText(btn, audioFile, isPlaying, isPaused = false) {
+    let text = '';
+    const config = idiomasConfig[audioFile] || { textEn: '🔊 Hear', textEs: '🔊 Escuchar' };
+    
+    if (isPlaying) {
+        text = currentLang === 'en' ? '⏸ Pause' : '⏸ Pausa';
+    } else if (isPaused) {
+        text = currentLang === 'en' ? '▶ Resume' : '▶ Reanudar';
+    } else {
+        text = currentLang === 'en' ? config.textEn : config.textEs;
+    }
+    btn.textContent = text;
+}
+
+function stopCurrentAudio() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        if (currentAudioBtn) {
+            const audioFile = currentAudioBtn.getAttribute('data-audio');
+            updateAudioButtonText(currentAudioBtn, audioFile, false);
+            currentAudioBtn.classList.remove('playing');
+        }
+        currentAudio = null;
+        currentAudioBtn = null;
+        currentAudioPlaying = false;
+    }
+}
+
+function pauseCurrentAudio() {
+    if (currentAudio && currentAudioPlaying) {
+        currentAudio.pause();
+        currentAudioPlaying = false;
+        if (currentAudioBtn) {
+            const audioFile = currentAudioBtn.getAttribute('data-audio');
+            updateAudioButtonText(currentAudioBtn, audioFile, false, true);
+        }
+    }
+}
+
+function resumeCurrentAudio() {
+    if (currentAudio && !currentAudioPlaying) {
+        currentAudio.play();
+        currentAudioPlaying = true;
+        if (currentAudioBtn) {
+            const audioFile = currentAudioBtn.getAttribute('data-audio');
+            updateAudioButtonText(currentAudioBtn, audioFile, true);
+        }
+    }
+}
+
+function playAudio(btn, audioFile) {
+    const audio = new Audio(`assets/audio/Languages/${audioFile}`);
+    currentAudio = audio;
+    currentAudioBtn = btn;
+    btn.classList.add('playing');
+    updateAudioButtonText(btn, audioFile, true);
+    
+    audio.play();
+    currentAudioPlaying = true;
+    
+    audio.addEventListener('ended', () => {
+        if (currentAudioBtn === btn) {
+            btn.classList.remove('playing');
+            updateAudioButtonText(btn, audioFile, false);
+            currentAudio = null;
+            currentAudioBtn = null;
+            currentAudioPlaying = false;
+        }
+    });
+}
+
+// ========== CARGA DE JSONS ==========
 async function cargarJSON(lang, archivo) {
     const basePath = `assets/docs/${lang === 'en' ? 'en' : 'es'}/`;
     try {
@@ -42,7 +155,6 @@ async function cargarJSON(lang, archivo) {
     }
 }
 
-// Generar burbujas (con logos traducidos)
 function generarBurbujas(experiencias) {
     if (!experiencias || !experiencias.length) return '<div class="loading">No hay información disponible</div>';
     
@@ -75,7 +187,6 @@ function generarBurbujas(experiencias) {
     }).join('')}</div>`;
 }
 
-// Generar Skills (mini burbujas sin duplicar cabecera)
 function generarSkills(data) {
     if (!data || !data.contenido) return '<div class="skills-placeholder">Información de habilidades no disponible</div>';
     
@@ -107,238 +218,18 @@ function generarSkills(data) {
     return html;
 }
 
-// Generar Idiomas
 function generarIdiomas() {
-    return `<div class="idiomas-grid">${idiomas.map(idioma => `
-        <div class="idioma-card">
-            <img src="assets/images/flags/${idioma.bandera}" alt="${idioma.nombre}" class="idioma-bandera" onerror="this.style.display='none'">
-            <div class="idioma-nombre"><span class="en">${idioma.nombre_en || idioma.nombre}</span><span class="es" style="display:none">${idioma.nombre}</span></div>
-            <div class="idioma-nivel"><span class="en">${idioma.nivel_en}</span><span class="es" style="display:none">${idioma.nivel_es}</span></div>
-            <button class="audio-btn" data-audio="${idioma.audio}">🔊</button>
-        </div>
-    `).join('')}</div>`;
-}
-
-// Configurar eventos de audio (play/pausa)
-function configurarAudios() {
-    document.querySelectorAll('.audio-btn').forEach(btn => {
-        btn.removeEventListener('click', audioHandler);
-        btn.addEventListener('click', audioHandler);
-    });
-}
-
-function audioHandler(e) {
-    e.stopPropagation();
-    const btn = this;
-    const audioFile = btn.getAttribute('data-audio');
+    const idiomas = [
+        { nombre: "Español", nombre_en: "Spanish", bandera: "espana.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Espanol.mp3" },
+        { nombre: "Galego", nombre_en: "Galician", bandera: "galicia.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Galego.mp3" },
+        { nombre: "English", nombre_en: "English", bandera: "uk.svg", nivel_en: "Proficient (B2/C1)", nivel_es: "Competente (B2/C1)", audio: "English.mp3" },
+        { nombre: "Português", nombre_en: "Portuguese", bandera: "portugal.svg", nivel_en: "Proficient (C1)", nivel_es: "Competente (C1)", audio: "Portugues.mp3" },
+        { nombre: "中文", nombre_en: "Chinese", bandera: "china.svg", nivel_en: "Beginner (HSK1)", nivel_es: "Principiante (HSK1)", audio: "Chino.mp3" }
+    ];
     
-    if (audioActual && botonActual !== btn) {
-        audioActual.pause();
-        audioActual.currentTime = 0;
-        if (botonActual) botonActual.textContent = '🔊';
-    }
-    
-    if (audioActual && botonActual === btn && !audioActual.paused) {
-        audioActual.pause();
-        audioActual.currentTime = 0;
-        btn.textContent = '🔊';
-        audioActual = null;
-        botonActual = null;
-        return;
-    }
-    
-    const audio = new Audio(`assets/audio/Languages/${audioFile}`);
-    audioActual = audio;
-    botonActual = btn;
-    btn.textContent = '🔊 Reproduciendo...';
-    
-    audio.play().catch(err => console.log('Error:', err));
-    
-    audio.addEventListener('ended', () => {
-        if (botonActual === btn) {
-            btn.textContent = '🔊';
-            audioActual = null;
-            botonActual = null;
-        }
-    });
-}
-
-// Cargar todo el contenido dinámico
-async function cargarTodo() {
-    const container = document.getElementById('contenido-dinamico');
-    if (!container) return;
-    
-    container.innerHTML = '<div class="loading">Cargando contenido...</div>';
-    
-    let htmlFinal = '';
-    
-    for (const seccion of secciones) {
-        const archivo = currentLang === 'en' ? seccion.archivo_en : seccion.archivo_es;
-        const titulo = currentLang === 'en' ? seccion.titulo_en : seccion.titulo_es;
-        const data = await cargarJSON(currentLang, archivo);
-        
-        let contenidoHtml = '';
-        if (seccion.id === 'skills') {
-            contenidoHtml = generarSkills(data);
-        } else if (data && data.experiencias) {
-            contenidoHtml = generarBurbujas(data.experiencias);
-        } else if (data && data.educacion) {
-            contenidoHtml = generarBurbujas(data.educacion);
-        } else {
-            contenidoHtml = '<div class="loading">No hay información disponible</div>';
-        }
-        
-        htmlFinal += `
-            <div class="macro-seccion">
-                <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
-                    <h2 class="macro-titulo">${titulo}</h2>
-                    <span class="macro-toggle">▼</span>
-                </div>
-                <div class="macro-contenido">
-                    ${contenidoHtml}
-                </div>
-            </div>
-        `;
-    }
-    
-    // Añadir sección idiomas
-    htmlFinal += `
-        <div class="macro-seccion">
-            <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
-                <h2 class="macro-titulo">🌐 Languages / Idiomas</h2>
-                <span class="macro-toggle">▼</span>
-            </div>
-            <div class="macro-contenido">
-                ${generarIdiomas()}
-            </div>
-        </div>
-    `;
-    
-    container.innerHTML = htmlFinal;
-    
-    // Asegurar que todas las burbujas empiezan cerradas
-    document.querySelectorAll('.burbuja').forEach(burbuja => {
-        burbuja.classList.remove('abierta');
-    });
-    
-    // Configurar audios
-    configurarAudios();
-    
-    actualizarVisibilidadIdioma();
-}
-
-// Cambiar idioma
-async function cambiarIdioma(lang) {
-    currentLang = lang;
-    localStorage.setItem('cv_lang', lang);
-    
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        const btnLang = btn.getAttribute('data-lang');
-        if (btnLang === lang) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-    
-    const coverLetterEn = document.querySelector('#coverLetter .en');
-    const coverLetterEs = document.querySelector('#coverLetter .es');
-    if (coverLetterEn && coverLetterEs) {
-        if (lang === 'en') {
-            coverLetterEn.style.display = 'inline';
-            coverLetterEs.style.display = 'none';
-        } else {
-            coverLetterEn.style.display = 'none';
-            coverLetterEs.style.display = 'inline';
-        }
-    }
-    
-    const pdfBtn = document.getElementById('downloadPdfBtn');
-    if (pdfBtn) {
-        if (lang === 'en') {
-            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
-        } else {
-            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Entrenador de Baloncesto.pdf';
-        }
-    }
-    
-    await cargarTodo();
-}
-
-function actualizarVisibilidadIdioma() {
-    const enTextos = document.querySelectorAll('.en');
-    const esTextos = document.querySelectorAll('.es');
-    
-    if (currentLang === 'en') {
-        enTextos.forEach(el => el.style.display = 'inline');
-        esTextos.forEach(el => el.style.display = 'none');
-    } else {
-        enTextos.forEach(el => el.style.display = 'none');
-        esTextos.forEach(el => el.style.display = 'inline');
-    }
-}
-
-// Vídeo
-function initVideo() {
-    const playBtn = document.getElementById('playVideoBtn');
-    const fotoContainer = document.getElementById('fotoContainer');
-    const profileImg = document.getElementById('profileImg');
-    let videoElement = null;
-    let showingVideo = false;
-    
-    if (!playBtn) return;
-    
-    playBtn.addEventListener('click', () => {
-        if (!showingVideo) {
-            videoElement = document.createElement('video');
-            videoElement.src = 'assets/video/Manuel Sanmartin - Self Intro.mp4';
-            videoElement.autoplay = true;
-            videoElement.loop = false;
-            videoElement.muted = false;
-            videoElement.style.width = '100%';
-            videoElement.style.height = '230px';
-            videoElement.style.objectFit = 'cover';
-            videoElement.style.objectPosition = 'center 100%';
-            videoElement.style.borderRadius = '12px';
-            videoElement.style.display = 'block';
-            
-            profileImg.style.display = 'none';
-            fotoContainer.appendChild(videoElement);
-            
-            videoElement.play().catch(err => console.log('Error:', err));
-            
-            videoElement.addEventListener('ended', () => {
-                videoElement.remove();
-                profileImg.style.display = 'block';
-                showingVideo = false;
-                videoElement = null;
-            });
-            
-            showingVideo = true;
-            playBtn.textContent = '🎬 Reproduciendo...';
-            playBtn.disabled = true;
-            
-            setTimeout(() => {
-                if (showingVideo) {
-                    playBtn.disabled = false;
-                    playBtn.textContent = '🎥 Ver presentación';
-                }
-            }, 2000);
-        }
-    });
-}
-
-// Inicializar
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('cv_lang') || 'en';
-    
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
-            cambiarIdioma(lang);
-        });
-    });
-    
-    cambiarIdioma(savedLang);
-    initVideo();
-});
+    return `<div class="idiomas-grid">${idiomas.map(idioma => {
+        const textBtn = currentLang === 'en' ? '🔊 Hear' : (idioma.audio === 'Galego.mp3' ? '🔊 Escoitar' : (idioma.audio === 'Portugues.mp3' ? '🔊 Ouvir' : (idioma.audio === 'Chino.mp3' ? '🔊 听' : '🔊 Escuchar')));
+        return `
+            <div class="idioma-card">
+                <img src="assets/images/flags/${idioma.bandera}" alt="${idioma.nombre}" class="idioma-bandera" onerror="this.style.display='none'">
+                <div class="idioma-nombre"><span class="en">${idioma.nombre_en || idioma.nombre}</span><span class="es" style="display:none">${idioma.nombre}</span></
