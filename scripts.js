@@ -1,7 +1,9 @@
 // Variables globales
 let currentLang = 'en';
+let audioActual = null;
+let botonActual = null;
 
-// Idiomas con sus audios (nombres coinciden con los archivos en GitHub: primera letra mayúscula)
+// Idiomas con sus audios
 const idiomas = [
     { nombre: "Español", nombre_en: "Spanish", bandera: "espana.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Espanol.mp3" },
     { nombre: "Galego", nombre_en: "Galician", bandera: "galicia.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Galego.mp3" },
@@ -10,7 +12,7 @@ const idiomas = [
     { nombre: "中文", nombre_en: "Chinese", bandera: "china.svg", nivel_en: "Beginner (HSK1)", nivel_es: "Principiante (HSK1)", audio: "Chino.mp3" }
 ];
 
-// Secciones a cargar (nombres de archivos JSON)
+// Secciones a cargar
 const secciones = [
     { id: "coaching", titulo_en: "🏀 Basketball Coaching Experience", titulo_es: "🏀 Experiencia como Entrenador", archivo_en: "Basketball Coaching Experience.json", archivo_es: "Experiencia de Entrenador.json" },
     { id: "internships", titulo_en: "📚 Elite Internships", titulo_es: "📚 Prácticas de Élite", archivo_en: "Elite Internships.json", archivo_es: "Prácticas Profesionales.json" },
@@ -21,7 +23,7 @@ const secciones = [
     { id: "skills", titulo_en: "🛠️ Skills", titulo_es: "🛠️ Habilidades", archivo_en: "Skills.json", archivo_es: "Habilidades.json" }
 ];
 
-// Inicializar PDF (enlace por defecto en inglés)
+// Inicializar PDF
 const pdfBtnInicial = document.getElementById('downloadPdfBtn');
 if (pdfBtnInicial) {
     pdfBtnInicial.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
@@ -40,12 +42,18 @@ async function cargarJSON(lang, archivo) {
     }
 }
 
-// Generar burbujas
+// Generar burbujas (con logos traducidos)
 function generarBurbujas(experiencias) {
     if (!experiencias || !experiencias.length) return '<div class="loading">No hay información disponible</div>';
     
-    return `<div class="grid-burbujas">${experiencias.map(exp => `
-        <div class="burbuja" data-logo="${exp.logo || ''}" onclick="this.classList.toggle('abierta')">
+    return `<div class="grid-burbujas">${experiencias.map(exp => {
+        // Traducir nombre del logo: CBG.png -> cbg
+        let logoValue = '';
+        if (exp.logo) {
+            logoValue = exp.logo.replace('.png', '').toLowerCase();
+        }
+        return `
+        <div class="burbuja" data-logo="${logoValue}" onclick="this.classList.toggle('abierta')">
             <div class="burbuja-header">
                 <div class="burbuja-titulo">${exp.titulo || ''}</div>
                 <div class="burbuja-periodo">${exp.periodo || ''}</div>
@@ -59,20 +67,36 @@ function generarBurbujas(experiencias) {
                 </div>
             </div>
         </div>
-    `).join('')}</div>`;
+        `;
+    }).join('')}</div>`;
 }
 
-// Generar Skills
+// Generar Skills (mini burbujas)
 function generarSkills(data) {
     if (!data || !data.contenido) return '<div class="skills-placeholder">Información de habilidades no disponible</div>';
     
     const contenido = data.contenido;
-    let html = '<div class="skills-placeholder">';
+    let html = '<div class="grid-burbujas">';
     
     for (const categoria in contenido) {
         if (contenido[categoria] && contenido[categoria].items) {
-            html += `<strong>${contenido[categoria].titulo || categoria}</strong><br>`;
-            html += `${contenido[categoria].items.join(' · ')}<br><br>`;
+            const itemsEn = contenido[categoria].items;
+            const itemsEs = contenido[categoria].items_es || itemsEn;
+            html += `
+                <div class="burbuja" onclick="this.classList.toggle('abierta')">
+                    <div class="burbuja-header">
+                        <div class="burbuja-titulo">${contenido[categoria].titulo || categoria}</div>
+                        <div class="burbuja-resumen">${itemsEn.slice(0, 3).join(' · ')}${itemsEn.length > 3 ? ' ...' : ''}</div>
+                        <div class="indicador-click">▼ Click for details ▼</div>
+                    </div>
+                    <div class="burbuja-detalle">
+                        <div class="detalle-contenido">
+                            <span class="en">• ${itemsEn.join('<br>• ')}</span>
+                            <span class="es" style="display:none">• ${itemsEs.join('<br>• ')}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
     }
     html += '</div>';
@@ -89,6 +113,53 @@ function generarIdiomas() {
             <button class="audio-btn" data-audio="${idioma.audio}">🔊 Escuchar</button>
         </div>
     `).join('')}</div>`;
+}
+
+// Configurar eventos de audio (play/pausa)
+function configurarAudios() {
+    document.querySelectorAll('.audio-btn').forEach(btn => {
+        btn.removeEventListener('click', audioHandler);
+        btn.addEventListener('click', audioHandler);
+    });
+}
+
+function audioHandler(e) {
+    e.stopPropagation();
+    const btn = this;
+    const audioFile = btn.getAttribute('data-audio');
+    
+    // Si hay un audio sonando y NO es el mismo botón, lo paramos
+    if (audioActual && botonActual !== btn) {
+        audioActual.pause();
+        audioActual.currentTime = 0;
+        if (botonActual) botonActual.textContent = '🔊 Escuchar';
+    }
+    
+    // Si es el mismo botón y está sonando, lo paramos
+    if (audioActual && botonActual === btn && !audioActual.paused) {
+        audioActual.pause();
+        audioActual.currentTime = 0;
+        btn.textContent = '🔊 Escuchar';
+        audioActual = null;
+        botonActual = null;
+        return;
+    }
+    
+    // Crear nuevo audio
+    const audio = new Audio(`assets/audio/Languages/${audioFile}`);
+    audioActual = audio;
+    botonActual = btn;
+    btn.textContent = '🔊 Reproduciendo...';
+    
+    audio.play().catch(err => console.log('Error:', err));
+    
+    audio.addEventListener('ended', () => {
+        if (botonActual === btn) {
+            btn.textContent = '🔊 Escuchar';
+            audioActual = null;
+            botonActual = null;
+        }
+    });
 }
 
 // Cargar todo el contenido dinámico
@@ -144,15 +215,13 @@ async function cargarTodo() {
     
     container.innerHTML = htmlFinal;
     
-    // Configurar eventos de audio
-    document.querySelectorAll('.audio-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const audioFile = this.getAttribute('data-audio');
-            const audio = new Audio(`assets/audio/Languages/${audioFile}`);
-            audio.play().catch(err => console.log('Error reproduciendo audio:', err));
-        });
+    // Asegurar que todas las burbujas empiezan cerradas
+    document.querySelectorAll('.burbuja').forEach(burbuja => {
+        burbuja.classList.remove('abierta');
     });
+    
+    // Configurar audios
+    configurarAudios();
     
     actualizarVisibilidadIdioma();
 }
