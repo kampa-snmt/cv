@@ -199,7 +199,6 @@ function generarSkills(data) {
                 <div class="burbuja" onclick="this.classList.toggle('abierta')">
                     <div class="burbuja-header">
                         <div class="burbuja-titulo">${contenido[categoria].titulo || categoria}</div>
-                        <div class="burbuja-resumen">${itemsEn.slice(0, 3).join(' · ')}${itemsEn.length > 3 ? ' ...' : ''}</div>
                         <div class="indicador-click">▼ Click for details ▼</div>
                     </div>
                     <div class="burbuja-detalle">
@@ -264,7 +263,7 @@ async function cargarTodo() {
         
         htmlFinal += `
             <div class="macro-seccion contenido-oculto">
-                <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
+                <div class="macro-header" onclick="toggleMacro(this.parentElement)">
                     <h2 class="macro-titulo">${titulo}</h2>
                     <span class="macro-toggle">▼</span>
                 </div>
@@ -277,7 +276,7 @@ async function cargarTodo() {
     
     htmlFinal += `
         <div class="macro-seccion contenido-oculto">
-            <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
+            <div class="macro-header" onclick="toggleMacro(this.parentElement)">
                 <h2 class="macro-titulo">🌐 Languages / Idiomas</h2>
                 <span class="macro-toggle">▼</span>
             </div>
@@ -313,6 +312,10 @@ async function cargarTodo() {
             }
         });
     });
+}
+
+function toggleMacro(macroSeccion) {
+    macroSeccion.classList.toggle('contenido-oculto');
 }
 
 // ========== CAMBIO DE IDIOMA ==========
