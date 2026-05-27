@@ -84,12 +84,13 @@ body::before {
     height: auto;
     aspect-ratio: 180 / 230;
     object-fit: cover;
-    object-position: center 100%;
+    object-position: center 70%;
     display: block;
+    border-radius: 12px;
 }
 
 .header-foto img {
-    transform: scale(1.30);
+    transform: scale(1.12);
 }
 
 .btn-video {
@@ -361,19 +362,20 @@ body::before {
     z-index: 0;
 }
 
-.burbuja[data-logo="cbog"]::before { background-image: url('assets/images/logos/CBG.png'); background-size: 65px auto; background-position: right 10px center; }
-.burbuja[data-logo="cbog2"]::before { background-image: url('assets/images/logos/CBG2.png'); background-size: 65px auto; background-position: right 10px center; }
-.burbuja[data-logo="ballinamore"]::before { background-image: url('assets/images/logos/blazers.png'); background-size: 98px auto; }
-.burbuja[data-logo="nbg"]::before { background-image: url('assets/images/logos/nbg.png'); background-size: 93px auto; }
-.burbuja[data-logo="xuventude"]::before { background-image: url('assets/images/logos/xuven.png'); background-size: 110px auto; }
-.burbuja[data-logo="porto"]::before { background-image: url('assets/images/logos/porto.png'); background-size: 93px auto; }
-.burbuja[data-logo="cedevita"]::before { background-image: url('assets/images/logos/cedevita.png'); background-size: 119px auto; }
-.burbuja[data-logo="ciclo"]::before { background-image: url('assets/images/logos/ciclo.png'); background-size: 110px auto; }
-.burbuja[data-logo="tefl"]::before { background-image: url('assets/images/logos/tefl.png'); background-size: 180px auto; }
-.burbuja[data-logo="marisco"]::before { background-image: url('assets/images/logos/marisco.png'); background-size: 110px auto; }
-.burbuja[data-logo="super"]::before { background-image: url('assets/images/logos/super.png'); background-size: 110px auto; }
-.burbuja[data-logo="abrollos"]::before { background-image: url('assets/images/logos/abrollos.png'); background-size: 85px auto; }
-.burbuja[data-logo="uci"]::before { background-image: url('assets/images/logos/uci.png'); background-size: 110px auto; }
+/* Logos: nombre del archivo sin extensión y en minúscula */
+.burbuja[data-logo="cbg"]::before { background-image: url('assets/images/logos/CBG.png'); background-size: 65px auto; background-position: right 10px center; }
+.burbuja[data-logo="cbg2"]::before { background-image: url('assets/images/logos/CBG2.png'); background-size: 65px auto; background-position: right 10px center; }
+.burbuja[data-logo="blazers"]::before { background-image: url('assets/images/logos/Blazers.png'); background-size: 98px auto; background-position: right 15px center; }
+.burbuja[data-logo="nbg"]::before { background-image: url('assets/images/logos/NBG.png'); background-size: 93px auto; background-position: right 15px center; }
+.burbuja[data-logo="xuven"]::before { background-image: url('assets/images/logos/Xuven.png'); background-size: 110px auto; background-position: right 15px center; }
+.burbuja[data-logo="porto"]::before { background-image: url('assets/images/logos/porto.png'); background-size: 93px auto; background-position: right 15px center; }
+.burbuja[data-logo="cedevita"]::before { background-image: url('assets/images/logos/cedevita.png'); background-size: 119px auto; background-position: right 15px center; }
+.burbuja[data-logo="ciclo"]::before { background-image: url('assets/images/logos/ciclo.png'); background-size: 110px auto; background-position: right 15px center; }
+.burbuja[data-logo="tefl"]::before { background-image: url('assets/images/logos/tefl.png'); background-size: 180px auto; background-position: right 15px center; }
+.burbuja[data-logo="marisco"]::before { background-image: url('assets/images/logos/marisco.png'); background-size: 110px auto; background-position: right 15px center; }
+.burbuja[data-logo="super"]::before { background-image: url('assets/images/logos/super.png'); background-size: 110px auto; background-position: right 15px center; }
+.burbuja[data-logo="abrollos"]::before { background-image: url('assets/images/logos/abrollos.png'); background-size: 85px auto; background-position: right 15px center; }
+.burbuja[data-logo="uci"]::before { background-image: url('assets/images/logos/uci.png'); background-size: 110px auto; background-position: right 15px center; }
 
 .burbuja:hover {
     transform: translateY(-3px);
