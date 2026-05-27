@@ -294,7 +294,6 @@ async function cargarTodo() {
     
     // Configurar eventos de audio
     document.querySelectorAll('.audio-btn').forEach(btn => {
-        // Eliminar event listener anterior si existe
         const newBtn = btn.cloneNode(true);
         btn.parentNode.replaceChild(newBtn, btn);
         
@@ -341,18 +340,22 @@ async function cambiarIdioma(lang) {
         esTextos.forEach(el => el.style.display = 'inline');
     }
     
-    // PDF
+    // PDF (texto del botón y enlace)
     const pdfBtn = document.getElementById('downloadPdfBtn');
     if (pdfBtn) {
-        pdfBtn.href = lang === 'en' 
-            ? 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf'
-            : 'assets/docs/CV/Manuel Sanmartin - Entrenador de Baloncesto.pdf';
+        if (lang === 'en') {
+            pdfBtn.textContent = '📄 Download CV (PDF)';
+            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
+        } else {
+            pdfBtn.textContent = '📄 Descargar CV (PDF)';
+            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Entrenador de Baloncesto.pdf';
+        }
     }
     
     // Vídeo
     updateVideoButtonText();
     
-    // Recargar todo el contenido dinámico (burbujas, skills, idiomas)
+    // Recargar todo el contenido dinámico
     await cargarTodo();
 }
 
