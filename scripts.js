@@ -1,17 +1,16 @@
 // Variables globales
 let currentLang = 'en';
-let contentData = {};
 
-// Idiomas con sus audios
+// Idiomas con sus audios (nombres coinciden con los archivos en GitHub: primera letra mayúscula)
 const idiomas = [
-    { nombre: "Español", nombre_en: "Spanish", bandera: "espana.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "espanol.mp3" },
-    { nombre: "Galego", nombre_en: "Galician", bandera: "galicia.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "galego.mp3" },
-    { nombre: "English", nombre_en: "English", bandera: "uk.svg", nivel_en: "Proficient (B2/C1)", nivel_es: "Competente (B2/C1)", audio: "ingles.mp3" },
-    { nombre: "Português", nombre_en: "Portuguese", bandera: "portugal.svg", nivel_en: "Proficient (C1)", nivel_es: "Competente (C1)", audio: "portugues.mp3" },
-    { nombre: "中文", nombre_en: "Chinese", bandera: "china.svg", nivel_en: "Beginner (HSK1)", nivel_es: "Principiante (HSK1)", audio: "chino.mp3" }
+    { nombre: "Español", nombre_en: "Spanish", bandera: "espana.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Espanol.mp3" },
+    { nombre: "Galego", nombre_en: "Galician", bandera: "galicia.svg", nivel_en: "Native", nivel_es: "Nativo", audio: "Galego.mp3" },
+    { nombre: "English", nombre_en: "English", bandera: "uk.svg", nivel_en: "Proficient (B2/C1)", nivel_es: "Competente (B2/C1)", audio: "English.mp3" },
+    { nombre: "Português", nombre_en: "Portuguese", bandera: "portugal.svg", nivel_en: "Proficient (C1)", nivel_es: "Competente (C1)", audio: "Portugues.mp3" },
+    { nombre: "中文", nombre_en: "Chinese", bandera: "china.svg", nivel_en: "Beginner (HSK1)", nivel_es: "Principiante (HSK1)", audio: "Chino.mp3" }
 ];
 
-// Secciones a cargar
+// Secciones a cargar (nombres de archivos JSON)
 const secciones = [
     { id: "coaching", titulo_en: "🏀 Basketball Coaching Experience", titulo_es: "🏀 Experiencia como Entrenador", archivo_en: "Basketball Coaching Experience.json", archivo_es: "Experiencia de Entrenador.json" },
     { id: "internships", titulo_en: "📚 Elite Internships", titulo_es: "📚 Prácticas de Élite", archivo_en: "Elite Internships.json", archivo_es: "Prácticas Profesionales.json" },
@@ -22,9 +21,15 @@ const secciones = [
     { id: "skills", titulo_en: "🛠️ Skills", titulo_es: "🛠️ Habilidades", archivo_en: "Skills.json", archivo_es: "Habilidades.json" }
 ];
 
+// Inicializar PDF (enlace por defecto en inglés)
+const pdfBtnInicial = document.getElementById('downloadPdfBtn');
+if (pdfBtnInicial) {
+    pdfBtnInicial.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
+}
+
 // Cargar JSON
 async function cargarJSON(lang, archivo) {
-    const basePath = `assets/docs/${lang === 'en' ? 'Data - English' : 'Data - Español'}/`;
+    const basePath = `assets/docs/${lang === 'en' ? 'en' : 'es'}/`;
     try {
         const response = await fetch(basePath + archivo);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -86,9 +91,11 @@ function generarIdiomas() {
     `).join('')}</div>`;
 }
 
-// Cargar todo el contenido
+// Cargar todo el contenido dinámico
 async function cargarTodo() {
     const container = document.getElementById('contenido-dinamico');
+    if (!container) return;
+    
     container.innerHTML = '<div class="loading">Cargando contenido...</div>';
     
     let htmlFinal = '';
@@ -165,7 +172,7 @@ async function cambiarIdioma(lang) {
         }
     });
     
-    // Actualizar textos estáticos
+    // Actualizar cover letter
     const coverLetterEn = document.querySelector('#coverLetter .en');
     const coverLetterEs = document.querySelector('#coverLetter .es');
     if (coverLetterEn && coverLetterEs) {
@@ -175,6 +182,16 @@ async function cambiarIdioma(lang) {
         } else {
             coverLetterEn.style.display = 'none';
             coverLetterEs.style.display = 'inline';
+        }
+    }
+    
+    // Actualizar PDF según idioma
+    const pdfBtn = document.getElementById('downloadPdfBtn');
+    if (pdfBtn) {
+        if (lang === 'en') {
+            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf';
+        } else {
+            pdfBtn.href = 'assets/docs/CV/Manuel Sanmartin - Entrenador de Baloncesto.pdf';
         }
     }
     
@@ -213,7 +230,8 @@ function initVideo() {
             videoElement.loop = false;
             videoElement.muted = false;
             videoElement.style.width = '100%';
-            videoElement.style.height = '230px';
+            videoElement.style.height = 'auto';
+            videoElement.style.aspectRatio = '180 / 230';
             videoElement.style.objectFit = 'cover';
             videoElement.style.borderRadius = '15px';
             
