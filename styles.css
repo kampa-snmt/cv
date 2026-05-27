@@ -56,13 +56,12 @@ body::before {
     margin-bottom: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(201, 160, 61, 0.3);
-    position: relative;
 }
 
 .header-container {
     display: flex;
     gap: 2rem;
-    align-items: stretch;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
@@ -126,8 +125,6 @@ body::before {
     flex-direction: column;
     justify-content: space-between;
     min-height: 230px;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 .header-info h1 {
@@ -143,7 +140,7 @@ body::before {
     color: var(--color-secondary);
     font-weight: 600;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -171,8 +168,7 @@ body::before {
     gap: 0.8rem;
     font-size: 1rem;
     color: #444;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0.8rem;
 }
 
 .contacto-item {
@@ -220,6 +216,10 @@ body::before {
     color: #444;
 }
 
+.header-bottom {
+    margin-top: 0.5rem;
+}
+
 .header-redes {
     display: flex;
     flex-wrap: wrap;
@@ -244,9 +244,6 @@ body::before {
 }
 
 .btn-download {
-    position: absolute;
-    bottom: 1.2rem;
-    right: 1.5rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -258,6 +255,7 @@ body::before {
     font-weight: bold;
     font-size: 0.8rem;
     transition: var(--transition);
+    margin-left: auto;
 }
 
 .btn-download:hover {
@@ -290,7 +288,7 @@ body::before {
     border-color: var(--color-primary);
 }
 
-/* ========== MACRO SECCIONES (mismo comportamiento que burbujas pequeñas, sin sombra) ========== */
+/* ========== MACRO SECCIONES ========== */
 .macro-seccion {
     margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.92);
@@ -344,12 +342,11 @@ body::before {
     padding: 0 1.5rem;
 }
 
-/* Efecto visual cuando la macro está abierta (similar a burbujas pequeñas) */
 .macro-seccion:not(.contenido-oculto) {
     border-color: var(--color-secondary);
 }
 
-/* ========== BURBUJAS PEQUEÑAS ========== */
+/* ========== BURBUJAS PEQUEÑAS (sin texto indicador) ========== */
 .grid-burbujas {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -427,13 +424,6 @@ body::before {
 .burbuja-resumen {
     font-size: 0.85rem;
     color: var(--color-text-light);
-}
-
-.indicador-click {
-    font-size: 0.7rem;
-    color: var(--color-secondary);
-    margin-top: 0.5rem;
-    display: inline-block;
 }
 
 .burbuja-detalle {
@@ -567,8 +557,6 @@ body::before {
     .header-info {
         min-height: auto;
         text-align: center;
-        padding-top: 0;
-        padding-bottom: 0;
     }
     .header-info h1 {
         font-size: 1.5rem;
@@ -578,7 +566,6 @@ body::before {
         justify-content: center;
     }
     
-    /* Contacto en móvil: cada grupo en su línea, separadores ocultos */
     .contacto-linea {
         flex-direction: column;
         align-items: flex-start;
@@ -598,10 +585,7 @@ body::before {
         justify-content: center;
     }
     .btn-download {
-        position: static;
-        margin-top: 1rem;
-        display: inline-flex;
-        justify-content: center;
+        margin-left: 0;
     }
     .macro-titulo {
         font-size: 1.2rem;
