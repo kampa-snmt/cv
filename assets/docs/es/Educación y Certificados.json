@@ -1,0 +1,58 @@
+{
+  "categoria": "Educación y Titulaciones",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "educacion": [
+    {
+      "id": "tefl",
+      "titulo": "TEFL English",
+      "periodo": "Completado",
+      "horas": "120 horas",
+      "logo": "tefl.png",
+      "centro": "The TEFL.org",
+      "detalle": "Certificación de enseñanza de inglés como lengua extranjera. Temas estudiados: planificación de lecciones, gestión del aula, metodologías de enseñanza, instrucción gramatical y adaptación a diferentes estilos de aprendizaje. Enfoque en involucrar a estudiantes de diversos niveles."
+    },
+    {
+      "id": "geography-history",
+      "titulo": "Grado en Geografía e Historia",
+      "periodo": "2011 - Actualidad (en curso)",
+      "logo": null,
+      "centro": "UNED · Madrid, España",
+      "detalle": "Grado en Geografía e Historia por la Universidad Nacional de Educación a Distancia. Actualmente en curso.",
+      "nivel": "EQF Nivel 6"
+    },
+    {
+      "id": "bachillerato",
+      "titulo": "Bachillerato",
+      "periodo": "2008 - 2011",
+      "logo": null,
+      "centro": "IES Monte Da Vila · O Grove, España",
+      "detalle": "Bachillerato completado.",
+      "nivel": "EQF Nivel 4"
+    },
+    {
+      "id": "secondary-education",
+      "titulo": "Educación Secundaria Obligatoria (ESO)",
+      "periodo": "2003 - 2008",
+      "logo": null,
+      "centro": "IES As Bizocas · O Grove, España",
+      "detalle": "Educación Secundaria Obligatoria completada.",
+      "nivel": "EQF Nivel 3"
+    },
+    {
+      "id": "primary-education",
+      "titulo": "Educación Primaria",
+      "periodo": "1997 - 2003",
+      "logo": null,
+      "centro": "CEIP Valle-Inclán · O Grove, España",
+      "detalle": "Educación Primaria completada.",
+      "nivel": "EQF Nivel 1"
+    }
+  ],
+  "online_courses_non_sports": [
+    {
+      "nombre": "Introducción a la Identidad Profesional del Educador",
+      "tipo": "Curso online"
+    }
+  ]
+}

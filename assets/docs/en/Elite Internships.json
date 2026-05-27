@@ -1,0 +1,25 @@
+{
+  "categoria": "Elite Internships",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "fc-porto",
+      "titulo": "FC Porto · Portugal",
+      "periodo": "2019",
+      "resumen": "Internship Coach · Mentored by Moncho López & Isabel Lemos",
+      "logo": "porto.png",
+      "detalle": "Worked at all Club teams, since U12 until Pro Senior, attending at +15 practices a week. Constant exchange of information and ideas with the coaches of FCPorto. Mentored by Moncho López and Isabel Lemos.",
+      "tipo": "Internship for the Higher Level Basketball Coaching Diploma"
+    },
+    {
+      "id": "kk-cedevita",
+      "titulo": "KK Cedevita Zagreb · Croatia",
+      "periodo": "2018",
+      "resumen": "Internship Coach · Mentored by Jure Zdovc, Slaven Rimac & Dražen Orešković",
+      "logo": "cedevita.png",
+      "detalle": "Attended all professional team practices and to some youth teams practices every day. Took notes on exercises performed, tactic work and check their application in games. Mentored by Jure Zdovc, Slaven Rimac and Dražen Orešković.",
+      "tipo": "Internship for the Intermediate Level Basketball Coaching Diploma"
+    }
+  ]
+}

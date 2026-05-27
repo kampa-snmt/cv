@@ -1,0 +1,114 @@
+{
+  "categoria": "Basketball Coaching Experience",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "cbog-actual",
+      "titulo": "Club Baloncesto O Grove (current stage)",
+      "periodo": "2025 - Present",
+      "resumen": "Head Coach & Sporting Director",
+      "logo": "CBG.png",
+      "detalle": "Currently leading the senior team and coordinating the youth academy. Responsible for team philosophy, training methodology, and player development across all categories. Also serving as Sporting Director, managing coaching staff and club strategy.",
+      "responsabilidades": [
+        "Head Coach of senior team",
+        "Sporting Director of the club",
+        "Youth academy coordinator",
+        "Coach mentoring and formation"
+      ],
+      "logros": [
+        "Implementation of new training methodology",
+        "Club restructuring and strategic planning",
+        "Integration of video analysis in training sessions"
+      ]
+    },
+    {
+      "id": "ballinamore",
+      "titulo": "Ballinamore Blazers · Ireland",
+      "periodo": "2024 - 2025",
+      "resumen": "Head Coach & Sporting Director",
+      "logo": "blazers.png",
+      "detalle": "International experience coaching players aged 5 to 18 in Ireland. Also led 'wellness basketball' sessions for adults (35-60). Promoted basketball in local schools as PE instructor.",
+      "responsabilidades": [
+        "Head Coach for all youth categories",
+        "Sporting Director - club organization",
+        "PE instructor in local schools",
+        "Social media and content creation for the club"
+      ],
+      "logros": [
+        "Increased youth participation by 40%",
+        "Organized first inter-club friendly tournament",
+        "Developed digital presence strategy"
+      ]
+    },
+    {
+      "id": "nbg-china",
+      "titulo": "NBG Academy · Hangzhou, China",
+      "periodo": "2021 - 2022",
+      "resumen": "Head Coach · PE Teacher · Content Creator",
+      "logo": "nbg.png",
+      "detalle": "Coached players between 6-17 years old, leading team practices and individual workouts. Produced video content to support player development and promote the academy. Served as a PE teacher and ASA (After School Activities) instructor in schools. Mentored new coaches within the academy.",
+      "responsabilidades": [
+        "Head Coach for multiple age groups",
+        "Individual skill development sessions",
+        "Video content creation (training and promotional)",
+        "PE teacher and ASA instructor",
+        "New coach mentoring"
+      ],
+      "logros": [
+        "Developed video analysis system for player feedback",
+        "Increased retention rate by 25%",
+        "Created training curriculum adopted by academy"
+      ]
+    },
+    {
+      "id": "xuventude",
+      "titulo": "Club Xuventude Baloncesto · Cambados",
+      "periodo": "2019 - 2020",
+      "resumen": "Head Coach & Assistant Coach",
+      "logo": "xuven.png",
+      "detalle": "Worked with players between 6 and 23 years old. Assisted the Sporting Director in developing team philosophy and annual plans. Head Coach of U14F team and Assistant Coach of Senior Femenino team.",
+      "responsabilidades": [
+        "Head Coach - U14 Femenino",
+        "Assistant Coach - Senior Femenino",
+        "Assistant Coach - U13 Femenino",
+        "Assistant Coach - U16 Femenino"
+      ],
+      "logros": [
+        "Team development and tactical improvement",
+        "Player progression to higher categories",
+        "Collaboration in club strategic planning"
+      ]
+    },
+    {
+      "id": "cbog-primera",
+      "titulo": "Club Baloncesto O Grove (first stage)",
+      "periodo": "2006 - 2019",
+      "resumen": "Head Coach & Assistant Coach · Multiple teams",
+      "logo": "CBG2.png",
+      "detalle": "Longest coaching stage, developing players from benjamín to junior categories. Experience as both Head Coach and Assistant Coach across multiple teams each season. Also served as associated Sporting Director during later years.",
+      "responsabilidades": [
+        "Head Coach of multiple teams per season",
+        "Assistant Coach of multiple teams per season",
+        "Associated Sporting Director",
+        "Annual player and team progression planning",
+        "Club event organization (tournaments, trips, marketing)"
+      ],
+      "logros": [
+        "Developed hundreds of players over 13 years",
+        "Built club culture and identity",
+        "Organized club events and tournaments",
+        "Player promotions to higher divisions"
+      ],
+      "equipos_destacados": [
+        "U18 Femenino (2018-19)",
+        "U16 Masculino (2017-18)",
+        "U16 Femenino (2017-18)",
+        "U14 Femenino (2014-15)",
+        "U14 Masculino (2014-15)",
+        "U12 Mixto (2018-19)",
+        "and many more across 13 seasons"
+      ]
+    }
+  ]
+}

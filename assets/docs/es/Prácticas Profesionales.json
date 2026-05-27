@@ -1,0 +1,25 @@
+{
+  "categoria": "Prácticas de Élite",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "fc-porto",
+      "titulo": "FC Porto · Portugal",
+      "periodo": "2019",
+      "resumen": "Entrenador en Prácticas · Tutorizado por Moncho López e Isabel Lemos",
+      "logo": "porto.png",
+      "detalle": "Paso por todas las categorías del club, desde SUB12 hasta Senior Profesional. Participación en los entrenamientos de cantera y observación en los del equipo profesional. Constante intercambio de información e ideas con los entrenadores del FCPorto sobre las diferencias con el baloncesto en España. Aprendizaje guiado por Moncho López e Isabel Lemos.",
+      "tipo": "Prácticas del Grado Superior de Técnico Deportivo en Baloncesto"
+    },
+    {
+      "id": "kk-cedevita",
+      "titulo": "KK Cedevita Zagreb · Croacia",
+      "periodo": "2018",
+      "resumen": "Entrenador en Prácticas · Tutorizado por Jure Zdovc, Slaven Rimac y Dražen Orešković",
+      "logo": "cedevita.png",
+      "detalle": "Participar en todos los entrenamientos del primer equipo. Asistir a varios entrenamientos por semana de los equipos de cantera. Tomar notas sobre los ejercicios realizados, trabajo táctico y comprobar su aplicación en los partidos. Aprendizaje guiado por Jure Zdvoc, Slaven Rimac y Dražen Orešković.",
+      "tipo": "Prácticas del Grado Medio de Técnico Deportivo en Baloncesto"
+    }
+  ]
+}

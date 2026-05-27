@@ -1,0 +1,58 @@
+{
+  "categoria": "Education & Qualifications",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "educacion": [
+    {
+      "id": "tefl",
+      "titulo": "TEFL English",
+      "periodo": "Completed",
+      "horas": "120 hours",
+      "logo": "tefl.png",
+      "centro": "The TEFL.org",
+      "detalle": "Teaching English as a Foreign Language certification. Topics studied included lesson planning, classroom management, teaching methodologies, grammar instruction, and adapting to different learning styles. Focused on engaging students of diverse language levels through interactive activities, cultural sensitivity, and personalized learning approaches."
+    },
+    {
+      "id": "geography-history",
+      "titulo": "Geography & History Degree",
+      "periodo": "2011 - Present (in progress)",
+      "logo": null,
+      "centro": "UNED · Madrid, Spain",
+      "detalle": "Bachelor's degree in Geography and History from the National University of Distance Education (UNED). Currently ongoing.",
+      "nivel": "EQF Level 6"
+    },
+    {
+      "id": "bachillerato",
+      "titulo": "High School / Bachillerato",
+      "periodo": "2008 - 2011",
+      "logo": null,
+      "centro": "IES Monte Da Vila · O Grove, Spain",
+      "detalle": "Completed Bachillerato (Spanish High School diploma).",
+      "nivel": "EQF Level 4"
+    },
+    {
+      "id": "secondary-education",
+      "titulo": "Secondary Education (ESO)",
+      "periodo": "2003 - 2008",
+      "logo": null,
+      "centro": "IES As Bizocas · O Grove, Spain",
+      "detalle": "Compulsory Secondary Education (Educación Secundaria Obligatoria).",
+      "nivel": "EQF Level 3"
+    },
+    {
+      "id": "primary-education",
+      "titulo": "Primary Education",
+      "periodo": "1997 - 2003",
+      "logo": null,
+      "centro": "CEIP Valle-Inclán · O Grove, Spain",
+      "detalle": "Primary Education (Educación Primaria).",
+      "nivel": "EQF Level 1"
+    }
+  ],
+  "online_courses_non_sports": [
+    {
+      "nombre": "Introduction to the Professional Identity of Educators",
+      "tipo": "Online course"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "categoria": "Skills / Competencias",
+  "fecha_actualizacion": "2026-05-08",
+  "idiomas": {
+    "es": "contenido en español",
+    "en": "content in English"
+  },
+  "contenido": {
+    "organizacion_gestion": {
+      "titulo": "📋 Organización y Gestión",
+      "items": [
+        "Experiencia en organización de almacenes (supermercado + material deportivo)",
+        "Gestión de grupos de trabajo en baloncesto (jugadores y entrenadores)",
+        "Experiencia en equipos multiculturales y multilingües",
+        "Optimización de procesos y búsqueda de eficiencia"
+      ]
+    },
+    "comunicacion": {
+      "titulo": "💬 Comunicación",
+      "items": [
+        "Facilidad para tratar con todo tipo de público",
+        "Comunicación improvisada cuando no hay idioma común",
+        "Experiencia en trato con niños (campamentos y baloncesto)",
+        "Curso en comunicación educativa (jóvenes y nuevas tecnologías/redes)",
+        "Perseverancia en la comunicación intercultural"
+      ]
+    },
+    "contenido_digital": {
+      "titulo": "🎥 Creación de Contenido Digital",
+      "items": [
+        "OBS (Open Broadcaster Software) para streaming profesional",
+        "Streamerbot para automatización de chat y eventos",
+        "Servidor cloud propio para emisiones en directo",
+        "Emisión de todos los partidos del equipo (temporada 2025-2026)",
+        "Canva para diseño gráfico y redes sociales",
+        "Edición de vídeo",
+        "Gestión de redes sociales y marketing digital (en curso)"
+      ]
+    },
+    "actitud_personal": {
+      "titulo": "🌟 Actitud Personal",
+      "items": [
+        "Persona amable, empática y positiva",
+        "Responsable y colaborativo con compañeros",
+        "Estudioso y buscador de optimización continua",
+        "Adaptable a situaciones cambiantes y de alta presión"
+      ]
+    },
+    "otros_intereses": {
+      "titulo": "🏀 Aficiones e Intereses",
+      "items": [
+        "Deportes (baloncesto, ciclismo) - practicante habitual",
+        "Historia (especial interés en culturas no europeas)",
+        "Lectura (fuente inagotable de información y soluciones)",
+        "Viajes (conocer costumbres y tradiciones)",
+        "Cultura general (aprendizaje continuo en múltiples campos)"
+      ]
+    }
+  }
+}

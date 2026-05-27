@@ -1,0 +1,114 @@
+{
+  "categoria": "Experiencia como Entrenador de Baloncesto",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "cbog-actual",
+      "titulo": "Club Baloncesto O Grove (etapa actual)",
+      "periodo": "2025 - Actualidad",
+      "resumen": "Entrenador Principal & Director Deportivo",
+      "logo": "CBG.png",
+      "detalle": "Liderando actualmente el equipo senior y coordinando la cantera. Responsable de la filosofía del equipo, metodología de entrenamiento y desarrollo de jugadores en todas las categorías. También ejerciendo como Director Deportivo.",
+      "responsabilidades": [
+        "Entrenador Principal del equipo senior",
+        "Director Deportivo del club",
+        "Coordinador de cantera",
+        "Formación de entrenadores"
+      ],
+      "logros": [
+        "Implementación de nueva metodología de entrenamiento",
+        "Reestructuración y planificación estratégica del club",
+        "Integración de análisis de vídeo"
+      ]
+    },
+    {
+      "id": "ballinamore",
+      "titulo": "Ballinamore Blazers · Irlanda",
+      "periodo": "2024 - 2025",
+      "resumen": "Entrenador Principal & Director Deportivo",
+      "logo": "blazers.png",
+      "detalle": "Experiencia internacional entrenando jugadores de 5 a 18 años. También dirigí sesiones de 'bienestar a través del baloncesto' para adultos (35-60). Promoví el baloncesto en colegios como instructor de EF.",
+      "responsabilidades": [
+        "Entrenador Principal de categorías base",
+        "Director Deportivo - organización del club",
+        "Instructor de EF en colegios locales",
+        "Redes sociales y creación de contenido"
+      ],
+      "logros": [
+        "Aumento del 40% en participación juvenil",
+        "Organización del primer torneo amistoso inter-clubes",
+        "Desarrollo de estrategia de presencia digital"
+      ]
+    },
+    {
+      "id": "nbg-china",
+      "titulo": "NBG Academy · Hangzhou, China",
+      "periodo": "2021 - 2022",
+      "resumen": "Entrenador Principal · Profesor EF · Creador de Contenido",
+      "logo": "nbg.png",
+      "detalle": "Entrené jugadores de 6 a 17 años, dirigiendo entrenamientos colectivos e individuales. Creé contenido en vídeo para apoyar el desarrollo y promocionar la academia. Profesor de EF y actividades extraescolares.",
+      "responsabilidades": [
+        "Entrenador Principal para múltiples edades",
+        "Sesiones individuales de desarrollo técnico",
+        "Creación de contenido en vídeo",
+        "Profesor de EF y actividades extraescolares",
+        "Mentor de nuevos entrenadores"
+      ],
+      "logros": [
+        "Sistema de análisis de vídeo para feedback",
+        "Aumento del 25% en retención de jugadores",
+        "Creación de currículo adoptado por la academia"
+      ]
+    },
+    {
+      "id": "xuventude",
+      "titulo": "Club Xuventude Baloncesto · Cambados",
+      "periodo": "2019 - 2020",
+      "resumen": "Entrenador Principal & Entrenador Asistente",
+      "logo": "xuven.png",
+      "detalle": "Trabajé con jugadores de 6 a 23 años. Asistí al Director Deportivo en el desarrollo de la filosofía del equipo. Entrenador Principal del equipo U14F y Asistente del Senior Femenino.",
+      "responsabilidades": [
+        "Entrenador Principal - U14 Femenino",
+        "Entrenador Asistente - Senior Femenino",
+        "Entrenador Asistente - U13 Femenino",
+        "Entrenador Asistente - U16 Femenino"
+      ],
+      "logros": [
+        "Desarrollo del equipo y mejora táctica",
+        "Progresión de jugadoras a categorías superiores",
+        "Colaboración en planificación estratégica"
+      ]
+    },
+    {
+      "id": "cbog-primera",
+      "titulo": "Club Baloncesto O Grove (primera etapa)",
+      "periodo": "2006 - 2019",
+      "resumen": "Entrenador Principal & Asistente · Múltiples equipos",
+      "logo": "CBG2.png",
+      "detalle": "Etapa más larga como entrenador, desarrollando jugadores desde benjamín hasta júnior. Experiencia como Entrenador Principal y Asistente en múltiples equipos por temporada. También ejercí como Director Deportivo asociado.",
+      "responsabilidades": [
+        "Entrenador Principal de múltiples equipos",
+        "Entrenador Asistente de múltiples equipos",
+        "Director Deportivo asociado",
+        "Planificación anual de progresión",
+        "Organización de eventos del club"
+      ],
+      "logros": [
+        "Desarrollo de cientos de jugadores en 13 años",
+        "Construcción de cultura e identidad de club",
+        "Organización de torneos y eventos",
+        "Promoción de jugadores a divisiones superiores"
+      ],
+      "equipos_destacados": [
+        "U18 Femenino (2018-19)",
+        "U16 Masculino (2017-18)",
+        "U16 Femenino (2017-18)",
+        "U14 Femenino (2014-15)",
+        "U14 Masculino (2014-15)",
+        "U12 Mixto (2018-19)",
+        "y muchos más a lo largo de 13 temporadas"
+      ]
+    }
+  ]
+}

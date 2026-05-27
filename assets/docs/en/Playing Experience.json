@@ -1,0 +1,34 @@
+{
+  "categoria": "Playing Experience",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "xuventude-jugador",
+      "titulo": "Club Xuventude Baloncesto · Cambados",
+      "periodo": "2016 - 2019",
+      "resumen": "Basketball Player · SG/SF",
+      "logo": "xuven.png",
+      "detalle": "Focused primarily on the SG role, refining specific skills such as catch-and-shoot after off-ball movement and reading screens, maintaining a +90% free-throw accuracy. Competing in higher-level divisions emphasized the importance of maintaining excellent physical condition, prioritizing injury prevention, recovery routines and overall body care.",
+      "fuente": "CV - Page 2"
+    },
+    {
+      "id": "cbog-elite",
+      "titulo": "Club Baloncesto O Grove · Elite Team",
+      "periodo": "2009 - 2016",
+      "resumen": "Basketball Player · SG/PG/F",
+      "logo": "CBG.png",
+      "detalle": "Joined the elite team at 18, further developing tactical knowledge. Played mainly as SG, with moments at PG or F, relying on speed and athleticism. Post-injuries, overcame physical limitations by developing new skills, long-range shooting, and a deeper understanding of the game.",
+      "fuente": "CV - Page 2"
+    },
+    {
+      "id": "cbog-formacion",
+      "titulo": "Club Baloncesto O Grove · Youth Formation",
+      "periodo": "1996 - 2009",
+      "resumen": "Basketball Player · All categories",
+      "logo": "CBG2.png",
+      "detalle": "Began playing basketball at a very young age, starting around 5 years old. Learned fundamentals at all levels, from U8 to U18, with a focus on skills and basic tactics. Played in at least two categories simultaneously, including training with elite teams from age 15. Earned selections for regional and county teams, gaining competitive experience.",
+      "fuente": "CV - Page 2"
+    }
+  ]
+}

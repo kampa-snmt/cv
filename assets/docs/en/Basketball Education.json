@@ -1,0 +1,60 @@
+{
+  "categoria": "Basketball Education",
+  "orden": "por_defecto",
+  "fecha_actualizacion": "2026-05-18",
+  "educacion": [
+    {
+      "id": "high-level-technician",
+      "titulo": "High Level Basketball Technician",
+      "periodo": "2017 - 2019",
+      "horas": "1,760 hours",
+      "centro": "IES Fermín Bouza Brey · Vilagarcía, Spain",
+      "logo": "ciclo.png",
+      "detalle": "Formal education covering all relevant aspects of basketball, including physical and psychological development at all levels, as well as Special Olympics such as wheelchair basketball. Includes 30-hour first aid training.",
+      "nivel": "EQF Level 5",
+      "componentes": [
+        "Ciclo Inicial de Grado Medio (2017) - 3 months",
+        "Ciclo Final de Grado Medio (2018) - 6 months",
+        "Ciclo de Grado Superior (2018-2019) - 9 months"
+      ]
+    },
+    {
+      "id": "clinics-conferences",
+      "titulo": "Clinics & Conferences",
+      "periodo": "2017 - 2020",
+      "horas": "250+ hours",
+      "logo": null,
+      "detalle": "Supplementary studies including clinics and conferences, participating as both an attendee and an on-court player to demonstrate examples and provide explanations. Topics cover virtually every aspect of basketball and sports in general, including scouting, advanced technical and tactical training, and development from youth to professional.",
+      "ponentes_destacados": [
+        "Pablo Laso",
+        "Xavi Pascual",
+        "Miguel Méndez",
+        "Juan Trapero",
+        "Moncho López",
+        "Gonzalo García",
+        "Carlos Frade",
+        "Chechu Mulero",
+        "Diego Ocampo"
+      ],
+      "eventos_destacados": [
+        "Clínic Xuven Cambados 2017",
+        "Clínic Baloncesto Vilagarcía 2018",
+        "Clínic Baloncesto Vilagarcía 2019",
+        "Formação Contínua de Treinadores AB Porto/FC Porto 2019"
+      ]
+    },
+    {
+      "id": "online-sports-courses",
+      "titulo": "Online Sports Courses",
+      "periodo": "Various",
+      "horas": null,
+      "logo": null,
+      "detalle": "Online courses focused on basketball and sports management.",
+      "cursos": [
+        "Gather step & Dribbling in formation level",
+        "Sports Facilities Management",
+        "Introduction to the Professional Identity of Educators"
+      ]
+    }
+  ]
+}

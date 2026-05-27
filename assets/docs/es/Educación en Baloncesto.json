@@ -1,0 +1,60 @@
+{
+  "categoria": "Formación en Baloncesto",
+  "orden": "por_defecto",
+  "fecha_actualizacion": "2026-05-18",
+  "educacion": [
+    {
+      "id": "high-level-technician",
+      "titulo": "Técnico Deportivo Superior en Baloncesto",
+      "periodo": "2017 - 2019",
+      "horas": "1.760 horas",
+      "centro": "IES Fermín Bouza Brey · Vilagarcía, España",
+      "logo": "ciclo.png",
+      "detalle": "Formación oficial que cubre todos los aspectos relevantes del baloncesto, incluyendo desarrollo físico y psicológico en todos los niveles, así como Special Olympics como baloncesto en silla de ruedas. Incluye formación de 30 horas en primeros auxilios.",
+      "nivel": "EQF Nivel 5",
+      "componentes": [
+        "Ciclo Inicial de Grado Medio (2017) - 3 meses",
+        "Ciclo Final de Grado Medio (2018) - 6 meses",
+        "Ciclo de Grado Superior (2018-2019) - 9 meses"
+      ]
+    },
+    {
+      "id": "clinics-conferences",
+      "titulo": "Clínicas y Conferencias",
+      "periodo": "2017 - 2020",
+      "horas": "250+ horas",
+      "logo": null,
+      "detalle": "Estudios complementarios que incluyen clínicas y conferencias, participando tanto como asistente como jugador en pista para demostrar ejemplos y proporcionar explicaciones. Los temas cubren prácticamente todos los aspectos del baloncesto y el deporte en general.",
+      "ponentes_destacados": [
+        "Pablo Laso",
+        "Xavi Pascual",
+        "Miguel Méndez",
+        "Juan Trapero",
+        "Moncho López",
+        "Gonzalo García",
+        "Carlos Frade",
+        "Chechu Mulero",
+        "Diego Ocampo"
+      ],
+      "eventos_destacados": [
+        "Clínic Xuven Cambados 2017",
+        "Clínic Baloncesto Vilagarcía 2018",
+        "Clínic Baloncesto Vilagarcía 2019",
+        "Formação Contínua de Treinadores AB Porto/FC Porto 2019"
+      ]
+    },
+    {
+      "id": "online-sports-courses",
+      "titulo": "Cursos Online Deportivos",
+      "periodo": "Varios",
+      "horas": null,
+      "logo": null,
+      "detalle": "Cursos online enfocados en baloncesto y gestión deportiva.",
+      "cursos": [
+        "Gather step & Dribbling en nivel de formación",
+        "Gestión de Instalaciones Deportivas",
+        "Introducción a la Identidad Profesional del Educador"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "categoria": "Otra Experiencia Laboral",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "festa-marisco",
+      "titulo": "Festa do Marisco · Concello de O Grove",
+      "periodo": "2016 - 2023",
+      "resumen": "Empleado en Evento Gastronómico",
+      "logo": "marisco.png",
+      "detalle": "Encargado principal del equipo de bebidas, supervisando la gestión de inventario, control de almacén y coordinación con proveedores, entre otras responsabilidades. Experiencia como camarero de barra, vendedor y cajero.",
+      "detalle_completo": "Contratos de 12 días en la Festa do Marisco de O Grove en 6 años diferentes. Total: 72 días / 700 horas.",
+      "responsabilidades": [
+        "Gestión del equipo de bebidas",
+        "Control de inventario y almacén",
+        "Coordinación con proveedores",
+        "Camarero de barra, cajero, vendedor"
+      ]
+    },
+    {
+      "id": "merca-mas",
+      "titulo": "Merca Más A Toxa · Supermercado",
+      "periodo": "2017 - 2019",
+      "resumen": "Dependiente de Supermercado",
+      "logo": "super.png",
+      "detalle": "Gestión de logística de almacén y control de inventario, incluyendo reposición de estanterías. Empaquetador y repartidor. Manejo de caja y balances diarios de ventas.",
+      "detalle_completo": "Contratos de dos meses durante tres veranos consecutivos entre julio y agosto. Total: 153 días / 1.071 horas.",
+      "responsabilidades": [
+        "Logística de almacén y control de stock",
+        "Reposición de estanterías",
+        "Empaquetador y repartidor",
+        "Cajero y balance de ventas"
+      ]
+    },
+    {
+      "id": "abrollos",
+      "titulo": "Asociación Cultural Abrollos · Campamento de Verano",
+      "periodo": "2009 - 2016",
+      "resumen": "Monitor de Ocio y Tiempo Libre",
+      "logo": "abrollos.png",
+      "detalle": "Campamento urbano de verano para niños y niñas de entre 4 y 15 años. Actividades al aire libre (senderismo, piragüismo, tiro con arco, etc.) y actividades culturales (manualidades, teatro, folclore, etc.).",
+      "detalle_completo": "Contratos de dos meses a lo largo de ocho veranos consecutivos durante julio, agosto y septiembre. Total: 536 días / 2.412 horas.",
+      "responsabilidades": [
+        "Supervisión de niños de 4 a 15 años",
+        "Coordinación de actividades al aire libre",
+        "Coordinación de actividades culturales"
+      ]
+    },
+    {
+      "id": "uci-austria",
+      "titulo": "Campeonato Mundial UCI · Innsbruck, Austria",
+      "periodo": "2018",
+      "resumen": "Gestor de Multitudes · Volunteer Team Tirol",
+      "logo": "uci.png",
+      "detalle": "Colaboración con policía y ejército para controlar accesos, gestionar el aforo y garantizar la seguridad de los atletas mediante la supervisión de áreas restringidas. Bienvenida y asistencia a espectadores, periodistas y ciclistas, guiándolos a sus áreas designadas.",
+      "detalle_completo": "8 días de voluntariado en el Campeonato Mundial de Ciclismo en Ruta.",
+      "responsabilidades": [
+        "Control de accesos y gestión de aforo",
+        "Supervisión de seguridad de atletas",
+        "Asistencia y guía a espectadores",
+        "Coordinación con policía y ejército"
+      ]
+    }
+  ]
+}

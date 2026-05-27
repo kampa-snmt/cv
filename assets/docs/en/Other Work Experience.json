@@ -1,0 +1,66 @@
+{
+  "categoria": "Other Work Experience",
+  "orden": "cronologico_inverso",
+  "fecha_actualizacion": "2026-05-18",
+  "experiencias": [
+    {
+      "id": "festa-marisco",
+      "titulo": "Festa do Marisco · Concello de O Grove",
+      "periodo": "2016 - 2023",
+      "resumen": "Employee at Gastronomic Event",
+      "logo": "marisco.png",
+      "detalle": "Primarily managed the beverage team, overseeing stock management, warehouse control, and supplier coordination, among other responsibilities. Experience as a bartender, public seller and cashier.",
+      "detalle_completo": "12 day contracts at the Festa do Marisco de O Grove in 6 different years. Total: 72 days / 700 hours.",
+      "responsabilidades": [
+        "Beverage team management",
+        "Stock management and warehouse control",
+        "Supplier coordination",
+        "Bartender, cashier, public seller"
+      ]
+    },
+    {
+      "id": "merca-mas",
+      "titulo": "Merca Más A Toxa · Supermarket",
+      "periodo": "2017 - 2019",
+      "resumen": "Supermarket Associate",
+      "logo": "super.png",
+      "detalle": "Managed warehouse logistics and stock control, including shelf restocking. Served as a packager and delivery driver. Handled cashier duties and managed daily sales balance sheets.",
+      "detalle_completo": "Two month contracts for three consecutive summers between July and August. Total: 153 days / 1,071 hours.",
+      "responsabilidades": [
+        "Warehouse logistics and stock control",
+        "Shelf restocking",
+        "Packager and delivery driver",
+        "Cashier and daily sales balance"
+      ]
+    },
+    {
+      "id": "abrollos",
+      "titulo": "Asociación Cultural Abrollos · Summer Camp",
+      "periodo": "2009 - 2016",
+      "resumen": "Leisure Activities Staff",
+      "logo": "abrollos.png",
+      "detalle": "Summer camp for children between 4 and 15 years old. Outdoor activities (hiking, canoeing, archery, etc.) and cultural activities (crafts, theatre, folk, etc.).",
+      "detalle_completo": "Two month contracts throughout eight consecutive summers in July, August and September. Total: 536 days / 2,412 hours.",
+      "responsabilidades": [
+        "Supervision of children aged 4-15",
+        "Outdoor activities coordination",
+        "Cultural activities coordination"
+      ]
+    },
+    {
+      "id": "uci-austria",
+      "titulo": "UCI World Championship · Innsbruck, Austria",
+      "periodo": "2018",
+      "resumen": "Crowd Management · Volunteer Team Tirol",
+      "logo": "uci.png",
+      "detalle": "Collaborated with police and military personnel to control access, manage capacity, and ensure athlete safety by monitoring restricted areas during events. Welcomed and assisted spectators, journalists, and cyclists, guiding them to their designated areas within and around the venue to ensure comfort and organization.",
+      "detalle_completo": "8 days volunteer work at the UCI Road World Championships.",
+      "responsabilidades": [
+        "Access control and capacity management",
+        "Athlete safety monitoring",
+        "Spectator assistance and guidance",
+        "Coordination with police and military"
+      ]
+    }
+  ]
+}
