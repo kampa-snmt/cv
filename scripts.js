@@ -47,10 +47,14 @@ function generarBurbujas(experiencias) {
     if (!experiencias || !experiencias.length) return '<div class="loading">No hay información disponible</div>';
     
     return `<div class="grid-burbujas">${experiencias.map(exp => {
-        // Traducir nombre del logo: CBG.png -> cbg
         let logoValue = '';
         if (exp.logo) {
             logoValue = exp.logo.replace('.png', '').toLowerCase();
+            if (logoValue === 'blazers') logoValue = 'ballinamore';
+            if (logoValue === 'nbg') logoValue = 'nbg';
+            if (logoValue === 'xuven') logoValue = 'xuventude';
+            if (logoValue === 'cbg') logoValue = 'cbog';
+            if (logoValue === 'cbg2') logoValue = 'cbog2';
         }
         return `
         <div class="burbuja" data-logo="${logoValue}" onclick="this.classList.toggle('abierta')">
@@ -71,7 +75,7 @@ function generarBurbujas(experiencias) {
     }).join('')}</div>`;
 }
 
-// Generar Skills (mini burbujas)
+// Generar Skills (mini burbujas sin duplicar cabecera)
 function generarSkills(data) {
     if (!data || !data.contenido) return '<div class="skills-placeholder">Información de habilidades no disponible</div>';
     
@@ -110,7 +114,7 @@ function generarIdiomas() {
             <img src="assets/images/flags/${idioma.bandera}" alt="${idioma.nombre}" class="idioma-bandera" onerror="this.style.display='none'">
             <div class="idioma-nombre"><span class="en">${idioma.nombre_en || idioma.nombre}</span><span class="es" style="display:none">${idioma.nombre}</span></div>
             <div class="idioma-nivel"><span class="en">${idioma.nivel_en}</span><span class="es" style="display:none">${idioma.nivel_es}</span></div>
-            <button class="audio-btn" data-audio="${idioma.audio}">🔊 Escuchar</button>
+            <button class="audio-btn" data-audio="${idioma.audio}">🔊</button>
         </div>
     `).join('')}</div>`;
 }
@@ -128,24 +132,21 @@ function audioHandler(e) {
     const btn = this;
     const audioFile = btn.getAttribute('data-audio');
     
-    // Si hay un audio sonando y NO es el mismo botón, lo paramos
     if (audioActual && botonActual !== btn) {
         audioActual.pause();
         audioActual.currentTime = 0;
-        if (botonActual) botonActual.textContent = '🔊 Escuchar';
+        if (botonActual) botonActual.textContent = '🔊';
     }
     
-    // Si es el mismo botón y está sonando, lo paramos
     if (audioActual && botonActual === btn && !audioActual.paused) {
         audioActual.pause();
         audioActual.currentTime = 0;
-        btn.textContent = '🔊 Escuchar';
+        btn.textContent = '🔊';
         audioActual = null;
         botonActual = null;
         return;
     }
     
-    // Crear nuevo audio
     const audio = new Audio(`assets/audio/Languages/${audioFile}`);
     audioActual = audio;
     botonActual = btn;
@@ -155,7 +156,7 @@ function audioHandler(e) {
     
     audio.addEventListener('ended', () => {
         if (botonActual === btn) {
-            btn.textContent = '🔊 Escuchar';
+            btn.textContent = '🔊';
             audioActual = null;
             botonActual = null;
         }
@@ -231,7 +232,6 @@ async function cambiarIdioma(lang) {
     currentLang = lang;
     localStorage.setItem('cv_lang', lang);
     
-    // Actualizar botones
     document.querySelectorAll('.lang-btn').forEach(btn => {
         const btnLang = btn.getAttribute('data-lang');
         if (btnLang === lang) {
@@ -241,7 +241,6 @@ async function cambiarIdioma(lang) {
         }
     });
     
-    // Actualizar cover letter
     const coverLetterEn = document.querySelector('#coverLetter .en');
     const coverLetterEs = document.querySelector('#coverLetter .es');
     if (coverLetterEn && coverLetterEs) {
@@ -254,7 +253,6 @@ async function cambiarIdioma(lang) {
         }
     }
     
-    // Actualizar PDF según idioma
     const pdfBtn = document.getElementById('downloadPdfBtn');
     if (pdfBtn) {
         if (lang === 'en') {
@@ -264,7 +262,6 @@ async function cambiarIdioma(lang) {
         }
     }
     
-    // Recargar secciones dinámicas
     await cargarTodo();
 }
 
@@ -299,13 +296,14 @@ function initVideo() {
             videoElement.loop = false;
             videoElement.muted = false;
             videoElement.style.width = '100%';
-            videoElement.style.height = 'auto';
-            videoElement.style.aspectRatio = '180 / 230';
+            videoElement.style.height = '230px';
             videoElement.style.objectFit = 'cover';
-            videoElement.style.borderRadius = '15px';
+            videoElement.style.objectPosition = 'center 100%';
+            videoElement.style.borderRadius = '12px';
+            videoElement.style.display = 'block';
             
             profileImg.style.display = 'none';
-            fotoContainer.insertBefore(videoElement, profileImg);
+            fotoContainer.appendChild(videoElement);
             
             videoElement.play().catch(err => console.log('Error:', err));
             
