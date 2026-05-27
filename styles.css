@@ -283,7 +283,6 @@ body::before {
     border-color: var(--color-primary);
 }
 
-/* ========== MACRO SECCIONES ========== */
 .macro-seccion {
     margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.92);
@@ -335,7 +334,6 @@ body::before {
     padding: 0 1.5rem;
 }
 
-/* ========== BURBUJAS ========== */
 .grid-burbujas {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -444,7 +442,6 @@ body::before {
     line-height: 1.5;
 }
 
-/* ========== IDIOMAS ========== */
 .idiomas-grid {
     display: flex;
     flex-wrap: wrap;
