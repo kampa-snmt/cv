@@ -567,9 +567,17 @@ body::before {
         flex-direction: column;
         align-items: center;
         gap: 0.2rem;
+        text-align: center;
     }
     .header-titulo .separador-titulo {
         display: none;
+    }
+
+    .header-titulo a {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
     }
     
     .contacto-linea {
