@@ -15,7 +15,7 @@ const secciones = [
     { id: "skills", titulo_en: "🛠️ Skills", titulo_es: "🛠️ Habilidades", archivo_en: "Skills.json", archivo_es: "Habilidades.json" }
 ];
 
-// Textos fijos de los botones de audio (NO cambian con el idioma)
+// Textos fijos de los botones de audio
 const audioTextos = {
     'Espanol.mp3': '🔊 Escuchar',
     'Galego.mp3': '🔊 Escoitar',
@@ -172,7 +172,6 @@ function generarBurbujas(experiencias) {
                 <div class="burbuja-titulo">${exp.titulo || ''}</div>
                 <div class="burbuja-periodo">${exp.periodo || ''}</div>
                 <div class="burbuja-resumen">${exp.resumen || ''}</div>
-                <div class="indicador-click">▼ Click for details ▼</div>
             </div>
             <div class="burbuja-detalle">
                 <div class="detalle-contenido">
@@ -199,7 +198,6 @@ function generarSkills(data) {
                 <div class="burbuja" onclick="this.classList.toggle('abierta')">
                     <div class="burbuja-header">
                         <div class="burbuja-titulo">${contenido[categoria].titulo || categoria}</div>
-                        <div class="indicador-click">▼ Click for details ▼</div>
                     </div>
                     <div class="burbuja-detalle">
                         <div class="detalle-contenido">
