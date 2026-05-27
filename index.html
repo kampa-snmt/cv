@@ -17,9 +17,14 @@
 
     <div class="header">
         <div class="header-container">
-            <div class="header-foto" id="fotoContainer">
-                <img id="profileImg" src="assets/images/profile.jpg" alt="Manuel Sanmartín">
-                <button class="btn-video" id="playVideoBtn">🎥 Ver presentación</button>
+            <div class="header-foto">
+                <div class="foto-marco">
+                    <div class="media-container" id="mediaContainer">
+                        <img id="profileImg" src="assets/images/profile.jpg" alt="Manuel Sanmartín">
+                        <video id="introVideo" src="assets/video/Manuel Sanmartin - Self Intro.mp4" preload="metadata"></video>
+                    </div>
+                    <button class="btn-video" id="playVideoBtn">🎥 Watch intro</button>
+                </div>
             </div>
             <div class="header-info">
                 <div>
@@ -45,7 +50,7 @@
                         <img src="assets/social/home.svg" alt="location"> O Grove, Spain
                     </div>
 
-                    <div class="header-coverletter" id="coverLetter">
+                    <div class="header-coverletter">
                         <span class="en">Experienced basketball coach since 2006, primarily in Spain, with additional experience in China, Ireland, and internships in Portugal and Croatia. Holds formal qualifications (1,760 coursework hours + 250+ conference hours) and FIBA Certificate. Specializes in skill development, tactical understanding, and game knowledge. Complemented by diverse experience in sales, summer camps, and customer service.</span>
                         <span class="es" style="display:none;">Entrenador de baloncesto con experiencia desde 2006, principalmente en España, con experiencia adicional en China, Irlanda y prácticas en Portugal y Croacia. Cuenta con titulación oficial (1.760 horas lectivas + 250+ horas de clínicas) y Certificado FIBA. Especializado en desarrollo de habilidades, comprensión táctica y conocimiento del juego. Complementado por experiencia diversa en ventas, campamentos de verano y atención al cliente.</span>
                     </div>
@@ -68,6 +73,7 @@
         </a>
     </div>
 
+    <!-- SECCIONES DINÁMICAS -->
     <div id="contenido-dinamico">
         <div class="loading">Cargando contenido...</div>
     </div>
