@@ -232,4 +232,138 @@ function generarIdiomas() {
         return `
             <div class="idioma-card">
                 <img src="assets/images/flags/${idioma.bandera}" alt="${idioma.nombre}" class="idioma-bandera" onerror="this.style.display='none'">
-                <div class="idioma-nombre"><span class="en">${idioma.nombre_en || idioma.nombre}</span><span class="es" style="display:none">${idioma.nombre}</span></
+                <div class="idioma-nombre"><span class="en">${idioma.nombre_en || idioma.nombre}</span><span class="es" style="display:none">${idioma.nombre}</span></div>
+                <div class="idioma-nivel"><span class="en">${idioma.nivel_en}</span><span class="es" style="display:none">${idioma.nivel_es}</span></div>
+                <button class="audio-btn" data-audio="${idioma.audio}">${textBtn}</button>
+            </div>
+        `;
+    }).join('')}</div>`;
+}
+
+async function cargarTodo() {
+    const container = document.getElementById('contenido-dinamico');
+    if (!container) return;
+    
+    container.innerHTML = '<div class="loading">Cargando contenido...</div>';
+    
+    let htmlFinal = '';
+    
+    for (const seccion of secciones) {
+        const archivo = currentLang === 'en' ? seccion.archivo_en : seccion.archivo_es;
+        const titulo = currentLang === 'en' ? seccion.titulo_en : seccion.titulo_es;
+        const data = await cargarJSON(currentLang, archivo);
+        
+        let contenidoHtml = '';
+        if (seccion.id === 'skills') {
+            contenidoHtml = generarSkills(data);
+        } else if (data && data.experiencias) {
+            contenidoHtml = generarBurbujas(data.experiencias);
+        } else if (data && data.educacion) {
+            contenidoHtml = generarBurbujas(data.educacion);
+        } else {
+            contenidoHtml = '<div class="loading">No hay información disponible</div>';
+        }
+        
+        htmlFinal += `
+            <div class="macro-seccion">
+                <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
+                    <h2 class="macro-titulo">${titulo}</h2>
+                    <span class="macro-toggle">▼</span>
+                </div>
+                <div class="macro-contenido">
+                    ${contenidoHtml}
+                </div>
+            </div>
+        `;
+    }
+    
+    htmlFinal += `
+        <div class="macro-seccion">
+            <div class="macro-header" onclick="this.parentElement.classList.toggle('contenido-oculto')">
+                <h2 class="macro-titulo">🌐 Languages / Idiomas</h2>
+                <span class="macro-toggle">▼</span>
+            </div>
+            <div class="macro-contenido">
+                ${generarIdiomas()}
+            </div>
+        </div>
+    `;
+    
+    container.innerHTML = htmlFinal;
+    
+    // Asegurar burbujas cerradas
+    document.querySelectorAll('.burbuja').forEach(b => b.classList.remove('abierta'));
+    
+    // Configurar eventos de audio
+    document.querySelectorAll('.audio-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const audioFile = this.getAttribute('data-audio');
+            
+            if (currentAudioBtn === this && currentAudioPlaying) {
+                pauseCurrentAudio();
+            }
+            else if (currentAudioBtn === this && !currentAudioPlaying && currentAudio) {
+                resumeCurrentAudio();
+            }
+            else {
+                stopCurrentAudio();
+                playAudio(this, audioFile);
+            }
+        });
+    });
+}
+
+// ========== CAMBIO DE IDIOMA ==========
+async function cambiarIdioma(lang) {
+    currentLang = lang;
+    localStorage.setItem('cv_lang', lang);
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Cover letter
+    const enTextos = document.querySelectorAll('.en');
+    const esTextos = document.querySelectorAll('.es');
+    if (lang === 'en') {
+        enTextos.forEach(el => el.style.display = 'inline');
+        esTextos.forEach(el => el.style.display = 'none');
+    } else {
+        enTextos.forEach(el => el.style.display = 'none');
+        esTextos.forEach(el => el.style.display = 'inline');
+    }
+    
+    // PDF
+    const pdfBtn = document.getElementById('downloadPdfBtn');
+    if (pdfBtn) {
+        pdfBtn.href = lang === 'en' 
+            ? 'assets/docs/CV/Manuel Sanmartin - Basketball Coach.pdf'
+            : 'assets/docs/CV/Manuel Sanmartin - Entrenador de Baloncesto.pdf';
+    }
+    
+    // Vídeo
+    updateVideoButtonText();
+    
+    // Recargar todo el contenido dinámico (burbujas, skills, idiomas)
+    await cargarTodo();
+}
+
+// ========== INICIALIZACIÓN ==========
+document.addEventListener('DOMContentLoaded', async () => {
+    const savedLang = localStorage.getItem('cv_lang') || 'en';
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            cambiarIdioma(lang);
+        });
+    });
+    
+    await cambiarIdioma(savedLang);
+});
